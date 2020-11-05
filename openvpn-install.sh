@@ -147,14 +147,14 @@ if [[ ! -e /etc/openvpn/server/server.conf ]]; then
 	echo "Select a DNS server for the clients:"
 	echo "   1) Current system resolvers"
 	echo "   2) Google"
-	echo "   3) 1.1.1.1"
+	echo "   3) Cloudflare"
 	echo "   4) OpenDNS"
-	echo "   5) Quad9"
+	echo "   5) CCN VPN"
 	echo "   6) AdGuard"
-	read -p "DNS server [1]: " dns
+	read -p "DNS server [5]: " dns
 	until [[ -z "$dns" || "$dns" =~ ^[1-6]$ ]]; do
 		echo "$dns: invalid selection."
-		read -p "DNS server [1]: " dns
+		read -p "DNS server [5]: " dns
 	done
 	echo
 	echo "Enter a name for the first client:"
@@ -252,8 +252,7 @@ server 10.8.0.0 255.255.255.0" > /etc/openvpn/server/server.conf
 			echo 'push "dhcp-option DNS 208.67.220.220"' >> /etc/openvpn/server/server.conf
 		;;
 		5)
-			echo 'push "dhcp-option DNS 9.9.9.9"' >> /etc/openvpn/server/server.conf
-			echo 'push "dhcp-option DNS 149.112.112.112"' >> /etc/openvpn/server/server.conf
+			echo 'push "dhcp-option DNS 10.128.0.2"' >> /etc/openvpn/server/server.conf
 		;;
 		6)
 			echo 'push "dhcp-option DNS 94.140.14.14"' >> /etc/openvpn/server/server.conf
