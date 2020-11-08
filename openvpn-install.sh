@@ -240,10 +240,12 @@ server 10.8.0.0 255.255.255.0" > /etc/openvpn/server/server.conf
 			done
 		;;
 		2)
+			echo 'push "dhcp-option DNS 10.8.0.1"' >> /etc/openvpn/server/server.conf
 			echo 'push "dhcp-option DNS 8.8.8.8"' >> /etc/openvpn/server/server.conf
 			echo 'push "dhcp-option DNS 8.8.4.4"' >> /etc/openvpn/server/server.conf
 		;;
 		3)
+			echo 'push "dhcp-option DNS 10.8.0.1"' >> /etc/openvpn/server/server.conf
 			echo 'push "dhcp-option DNS 1.1.1.1"' >> /etc/openvpn/server/server.conf
 			echo 'push "dhcp-option DNS 1.0.0.1"' >> /etc/openvpn/server/server.conf
 		;;
